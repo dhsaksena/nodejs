@@ -1,0 +1,4 @@
+create database resto;
+use resto;
+create table users(id int,name varchar(100),password varchar(100),email varchar(100));
+insert into users values(1,'Dhruv','123@abc','dd@gg.com');

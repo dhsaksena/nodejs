@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  nodejs:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    networks:
+      - node-mysql-network
+    depends_on:
+      - mysql-service
+  mysql-service:
+    image: mysql:5.7
+    networks:
+      - node-mysql-network
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=ronnie01
+      - MYSQL_DATABASE=testapp
+networks:
+  node-mysql-network:
+    driver: bridge
